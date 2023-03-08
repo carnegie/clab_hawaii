@@ -11,4 +11,10 @@ Process outline:
   This script will sort the .csv's for all years and all locations into one of 91 folders specific to the location. It creates these folders as well
   
 3 - add all yearly solar cfs together per location.py
-  This script will parse all the .csv's at one location and combine their solar capacity factors together into a new .csv. Can be easily modified to do this process for the wind capacity factors
+  This script will parse all the .csv's at one location and combine their solar capacity factors together into a new .csv. Can be easily modified to do this process for 
+ the wind capacity factors
+
+4 - Generate proper format MEM csv solar cfs
+  This script will input the MEM format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name
+  
+These four steps will result in a separate csv for each location that contains the capacity factors in a format ready to be used in MEM
