@@ -1,5 +1,8 @@
 README.md
-This README covers the process needed to convert the NSDRB data into usable capacity factors that are in the proper format for MEM. IT IS MEANT FOR DATA THAT INCLUDES LEAP YEARS AND REGULAR YEARS
+
+This README covers the process needed to convert the NSDRB data into usable capacity factors that are in the proper format for MEM. 
+
+IT IS MEANT FOR DATA THAT INCLUDES LEAP YEARS AND REGULAR YEARS
 
 Each .py script in the data processing folder has a number at the start of its name. This is the order in which these scripts need to be run.
 
