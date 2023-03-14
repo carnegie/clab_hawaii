@@ -1,0 +1,3 @@
+[submodule "clab_pypsa"]
+	path = clab_pypsa
+	url = https://github.com/carnegie/clab_pypsa.git
