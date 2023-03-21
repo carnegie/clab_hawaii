@@ -1,4 +1,5 @@
 This is how you set up the Caltech HPC so that you can run pypsa:
+This works to run short computations in the vislogin node, still trying to perfect running a lengthy computation in the compute nodes
 
 In the terminal  
 Install miniconda3  
