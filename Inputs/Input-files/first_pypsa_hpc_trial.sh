@@ -14,4 +14,4 @@
 
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
-python run_pypsa.py -f test_case.xlsx
+python run_pypsa.py -f works_on_desktop_try_on_HPC.xlsx
