@@ -21,8 +21,8 @@ Upload the .sh file that runs run_pypsa.py
 --> You can make most of this through https://s3-us-west-2.amazonaws.com/imss-hpc/index.html or see my .sh file  
 Then run commands   
 * chmod +x filename.sh  
-* sed -i -e 's/\r$//' filename.sh 
-* module load gurobi/10.0.0
+* sed -i -e 's/\r$//' filename.sh <--skip this step if you use Notepad++ to convert the .sh to unix format before uploading
+* module load gurobi/10.0.0  <--make sure this is the last command you type before the sbatch command
 
 
 You can now add your input to the queue  
