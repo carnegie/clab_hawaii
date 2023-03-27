@@ -1,5 +1,6 @@
 '''
-The script will extract the desired data from an h5 file
+The script will extract the data from an h5 file. It extracts data based on points identified to be the closest to the NSRDB points, 
+then calculates capacity factors for those points, then prints them to csv's for the correct NSRDB point that the data is closest to.
 '''
 import os
 path = 'D:\Hawaii_h5'
