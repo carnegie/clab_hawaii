@@ -80,7 +80,7 @@ for i in range(0, len(hourly_wind)):
         if wind.iloc[x,0] < 3:
             wind_cfs[x] = 0
         elif wind.iloc[x,0] >= 3 and wind.iloc[x,0] < 12:
-            wind_cfs[x] = (wind.iloc[x,0])/(u_r**3)
+            wind_cfs[x] = (wind.iloc[x,0]**3)/(u_r**3)
         elif wind.iloc[x,0] >= 12 and wind.iloc[x,0] <= 25:
             wind_cfs[x] = 1
         elif wind.iloc[x,0] > 25:
