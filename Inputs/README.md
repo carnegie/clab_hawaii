@@ -16,7 +16,7 @@ Then run commands
 
 Upload the clab_pypsa folder to your HPC directory  
 Upload your input file with the correct path  
---> My input path is /home/dcovelli/clab_pypsa  
+--> My input path is /home/dcovelli/clab_pypsa/inputs  
 Upload the .sh file that runs run_pypsa.py  
 --> You can make most of this through https://s3-us-west-2.amazonaws.com/imss-hpc/index.html or see my .sh file  
 Then run commands   
@@ -52,7 +52,7 @@ Then run commands
 * pip install pypsa  
 Upload the clab_pypsa folder to your HPC directory  
 Upload your input file with the correct path  
---> My input path is /home/dcovelli/clab_pypsa  
+--> My input path is /home/dcovelli/clab_pypsa/inputs    
 Upload the .sh file that runs run_pypsa.py  
 --> You can make most of this through https://s3-us-west-2.amazonaws.com/imss-hpc/index.html or see my .sh file  
 Then run commands  
