@@ -11,7 +11,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 
 HI_wind = Path("/Users/Dominic/Desktop/Oahu wind toolkit means.csv")
-HI_solar = Path("/Users/Dominic/Desktop/Oahu nsrdb means beyond 2006.csv")
+HI_solar = Path("/Users/Dominic/Desktop/Oahu nsrdb means 2006 beyond.csv")
 HI_demand = Path("/Users/Dominic/Desktop/2006_2020_Hawaii_State_Hourly_Demand_Proper_Format.csv")
 output_path = '/Users/Dominic/'
 #this takes in the file and gets rid of all lines before BEGIN_DATA
@@ -184,7 +184,7 @@ months =['Jan', 'Mar', 'May',  'Jul', 'Sep', 'Nov']
 #
 #plt.rcParams.update(params)
 
-fig = plt.figure(figsize=(10, 3.25))
+fig = plt.figure(figsize=(30, 7))
 ax1 = plt.subplot(141)
 
 ax1.plot(HI_x_values, HI_y_demand, color='black', linewidth='2', label='demand', zorder=2)
@@ -200,8 +200,8 @@ ax1.fill_between(HI_x_values, HI_wind_quartiles[3]['w_cfs'], HI_wind_quartiles[0
 ax1.fill_between(HI_x_values, HI_wind_quartiles[2]['w_cfs'], HI_wind_quartiles[1]['w_cfs'], alpha = 0.5, facecolor = 'blue', zorder=0)
 
 
-ax1.set_ylabel('Power divided by 14-year mean', fontsize = 14, color = 'black')
-ax1.set_title('Hawaii Resources', fontsize=14)
+ax1.set_ylabel('Power divided by 14-year mean', fontsize = 18, color = 'black')
+ax1.set_title('Hawaii Resources', fontsize=18)
 ax1.set_xlim(0, 365)
 ax1.set_ylim(0,2.4)
 ax1.set_xticks(np.arange(10, 360, 62))
