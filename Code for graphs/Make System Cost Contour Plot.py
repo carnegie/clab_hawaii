@@ -9,10 +9,11 @@ from matplotlib.colors import ListedColormap
 import pickle
 import os
 import pandas as pd
+from matplotlib import ticker
 
 
-x = [0, 6.66,13.32,20]
-y = [6.66,13.32,20]
+x = [0, 6.66,13.32,20,50,200]
+y = [0,3.33,6.66,13.32,20,26.66,33.32]
 X, Y = np.meshgrid(y,x)
 
 print(X) #x is battery
@@ -51,27 +52,28 @@ for file in os.listdir():
 cost.columns = ['System Cost [$/kWh]']
 
 #Create an array of the system cost
-Z = np.array([])
+Z = np.array([10])
 for i in range(0, file_count):
     #Append the system cost to the array
     Z = np.append(Z, [cost['System Cost [$/kWh]'].values[i]])
 print(Z)
 
 #Reshape the array to match the meshgrid
-Z = Z.reshape(4,3)
+Z = Z.reshape(6,7)
 print(Z)
 
 
 #Make Contour Plot
 
-plt.contourf(X, Y, Z, 4, cmap='RdGy')
+#plt.contourf(X, Y, Z, 10, cmap='OrRd', locator=ticker.LogLocator())
+plt.contourf(X, Y, Z, 10, cmap='OrRd')
 plt.colorbar(label='System Cost ($/kWh)');
 
 #make labels
 plt.xlabel('Battery Storage (MWh)')
 plt.ylabel('H2 Storage (MWh)')
 plt.title('System Cost Under Fixed Battery \n and H2 Storage Conditions')
-plt.xticks(np.arange(6.66, 21, step=4))
-plt.yticks(np.arange(0, 21, step=5))
-plt.savefig('System Cost Contour Plot.png', dpi=300)
+plt.xticks(np.arange(0, 36, step=6))
+plt.yticks(np.arange(0, 201, step=25))
+plt.savefig('System Cost Contour Plot at origin linear scale.png', dpi=300)
 plt.show()
