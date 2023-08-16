@@ -19,8 +19,8 @@ import seaborn as sns
 from pathlib import Path
 import os
 
-HI_wind = Path("/Users/Dominic/Desktop/Oahu wind toolkit means.csv")
-HI_wind_no_leap = Path("/Users/Dominic/Desktop/Oahu wind toolkit means - no leap.csv")
+HI_wind = Path("/Users/Dominic/Desktop/WIND weighted average Oahu wind cfs 2006-2019.csv")
+HI_wind_no_leap = Path("/Users/Dominic/Desktop/WIND weighted average Oahu wind cfs 2006-2019 no leap.csv")
 output_path = '/Users/Dominic/desktop/'
 
 
@@ -920,6 +920,8 @@ data7 = [list_7day2006, list_7day2007, list_7day2008, list_7day2009, list_7day20
 
 data = [data1, data2, data3, data4, data5, data6, data7]
 
+print(data4)
+
 fig = plt.figure(figsize =(10, 7))
 ax = fig.add_subplot(111)
 bp = ax.boxplot(data)
@@ -930,9 +932,11 @@ plt.xlabel('Drought Duration')
 #make the box color blue
 for box in bp['boxes']:
     box.set(color='blue', linewidth=2)
+for median in bp['medians']:
+    median.set_color('blue')
 #make the yticks go from 0 to 20 in increments of 4
-plt.yticks(np.arange(0, 20, 4))
+plt.yticks(np.arange(0, 21, 4))
 
 #save plot to output path
-plt.savefig(os.path.join(output_path, 'wind_droughts_per_year.png'))
+plt.savefig(os.path.join(output_path, 'wind_droughts_per_year.jpg'),dpi=300)
 plt.show()

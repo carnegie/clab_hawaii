@@ -1,3 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon May 15 18:52:05 2023
+
+@author: Dominic
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 27 11:25:28 2023
+
+@author: Dominic
+"""
+
 '''
 This script will determine the mean of the wind speed per day of the year for each year in the WIND toolkit data. 
 It will compare this mean to each value in the data and determine how much larger or smaller each value is than the mean. 
@@ -10,9 +24,9 @@ import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
 
-HI_wind = Path("/Users/Dominic/Desktop/Oahu wind toolkit means.csv")
-HI_solar = Path("/Users/Dominic/Desktop/Oahu nsrdb means 2006 beyond.csv")
-HI_demand = Path("/Users/Dominic/Desktop/2006_2020_Hawaii_State_Hourly_Demand_Proper_Format.csv")
+HI_wind = Path("/Users/Dominic/Desktop/WIND weighted average Oahu wind cfs 2006-2019.csv")
+HI_solar = Path("/Users/Dominic/Desktop/NSRDB weighted average Oahu solar cfs 2006-2019.csv")
+HI_demand = Path("/Users/Dominic/Desktop/2006_2020_Hawaii_State_Hourly_Demand_Weighted_just_Oahu.csv")
 output_path = '/Users/Dominic/'
 #this takes in the file and gets rid of all lines before BEGIN_DATA
 #then it returns a pandas dataframe
@@ -162,10 +176,10 @@ HI_wind_quartiles, HI_solar_mean, HI_wind_mean = process_data(HI_demand, HI_sola
 
 
 #
-#wind_mxmn = CA_wind_quartiles[0]['wind capacity']-CA_wind_quartiles[3]['wind capacity']
-#wind_index = wind_mxmn.idxmax()
-#solar_mxmn = CA_solar_quartiles[0]['solar capacity']-CA_solar_quartiles[3]['solar capacity']
-#solar_index = solar_mxmn.idxmax()
+wind_mxmn = HI_wind_quartiles[0]['w_cfs']-HI_wind_quartiles[3]['w_cfs']
+wind_index = wind_mxmn.idxmax()
+solar_mxmn = HI_solar_quartiles[0]['s_cfs']-HI_solar_quartiles[3]['s_cfs']
+solar_index = solar_mxmn.idxmax()
 #
 #WI_wind_mxmn = WECC_wind_quartiles[0]['wind capacity']-WECC_wind_quartiles[3]['wind capacity']
 #WI_wind_index = WI_wind_mxmn.idxmax()
@@ -201,7 +215,7 @@ ax1.fill_between(HI_x_values, HI_wind_quartiles[2]['w_cfs'], HI_wind_quartiles[1
 
 
 ax1.set_ylabel('Power divided by 14-year mean', fontsize = 18, color = 'black')
-ax1.set_title('Hawaii Resources', fontsize=18)
+ax1.set_title('Oahu Resources', fontsize=18)
 ax1.set_xlim(0, 365)
 ax1.set_ylim(0,2.4)
 ax1.set_xticks(np.arange(10, 360, 62))
@@ -211,7 +225,11 @@ ax1.set_xlabel('Month of year', fontsize=14)
 #fig.text(0.13, 0.93, 'a)', size='large')
 #fig.text(0.13, 0.265, 'b)', size='large')
 #
-#
+#Determine the range of the highest and lowest wind and solar capacity
+ax1.annotate('Wind range: {}'.format(round(wind_mxmn.max(), 2)), xy=(wind_index, 1.5), xytext=(wind_index, 1.5), fontsize=12)
+ax1.annotate('Solar range: {}'.format(round(solar_mxmn.max(), 2)), xy=(solar_index, 1.5), xytext=(solar_index, 1.5), fontsize=12)
+
 plt.tight_layout()
 #
-plt.savefig('{}HI variability.pdf'.format(output_path), bbox_inches='tight')
+#plt.savefig('{}Oahu variability.jpg'.format(output_path), dpi = 300, bbox_inches='tight')
+plt.show()

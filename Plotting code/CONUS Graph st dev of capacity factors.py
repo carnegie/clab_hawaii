@@ -8,11 +8,13 @@ from pathlib import Path
 import os
 import math
 
-HI_wind = Path("/Users/Dominic/Desktop/Oahu wind toolkit means.csv")
-HI_wind_no_leap = Path("/Users/Dominic/Desktop/Oahu wind toolkit means - no leap.csv")
-HI_solar = Path("/Users/Dominic/Desktop/Oahu nsrdb means 2006 - 2019.csv")
-HI_solar_no_leap = Path("/Users/Dominic/Desktop/Oahu nsrdb means 2006 - 2019 - no leap.csv")
-output_path = '/Users/Dominic/desktop/'
+HI_wind = Path("/Users/Dominic/Desktop/US_wind_thresh 2006-2018.csv")
+HI_wind_no_leap = Path("/Users/Dominic/Desktop/US_wind_thresh 2006-2018 no leap.csv")
+HI_solar = Path("/Users/Dominic/Desktop/US_solar_thresh 2006-2018.csv")
+HI_solar_no_leap = Path("/Users/Dominic/Desktop/US_solar_thresh 2006-2018.csv")
+#HI_demand = Path("/Users/Dominic/Desktop/2006_2019_Hawaii_State_Hourly_Demand_Weighted_just_Oahu.csv")
+#HI_demand_no_leap = Path("/Users/Dominic/Desktop/2006_2019_Hawaii_State_Hourly_Demand_Weighted_just_Oahu_no_leap.csv")
+output_path = '/Users/Dominic/'
 
 #import data from column 4 starting at row 7 into a pandas dataframe
 df = pd.DataFrame()
@@ -155,6 +157,7 @@ f29_std_solar = f29_solar.std(axis=0)
 df_std_solar.loc[58.5] = f29_std_solar
 df_std_solar = df_std_solar.sort_index().reset_index(drop=True)
 
+
 #Compute average st devs for the two generators
 avg_std_solar = df_std_solar.mean(axis=0)
 avg_std_solar[0] = round(avg_std_solar[0],3)
@@ -162,6 +165,8 @@ print(avg_std_solar[0])
 avg_std_wind = df_std.mean(axis=0)
 avg_std_wind[0] = round(avg_std_wind[0],3)
 print(avg_std_wind[0])
+print(df_std_solar)
+print(df_std)
 
 
 
@@ -178,23 +183,25 @@ df_std_solar.columns = ['s_cfs', 'index']
 
 
 #Make a scatter plot of the standard deviation values from df_std for each day of the year
-ax1 = df_std.plot.scatter(x='index', y='w_cfs', color='blue', figsize=(20,10), s=250, marker='1')
+ax1 = df_std.plot.scatter(x='index', y='w_cfs', color='blue', figsize=(20,6), s=250, marker='1')
+print('y')
 ax2 = df_std_solar.plot.scatter(x='index', y='s_cfs', color='orange', ax=ax1, s=60, marker='*')
 
 
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-ytick = np.arange(0, 0.351, 0.05)
-ax1.set_yticklabels(np.round(ytick, 2),fontsize = 20)
+ax1.set_ylim(0,0.351,0.05, )
+ax1.tick_params(axis='y', labelsize=20)
 ax1.set_xticks(np.arange(0, 360, 31))
 ax1.set_xticklabels(months, fontsize = 20)
 ax1.set_xlabel('Month of year', fontsize=26, labelpad=10)
 ax1.set_ylabel('Standard Deviation', fontsize=26, labelpad = 10)
-ax1.set_title('Standard Deviation of Daily Wind and Solar Capacity Factors', fontsize=30, pad=15)
+ax1.set_title('CONUS Standard Deviation of Daily Wind and Solar Capacity Factors', fontsize=30, pad=15)
+
 
 y = ['Wind','Solar']
-ax1.legend(y, loc="best", fontsize = 25)
+ax1.legend(y, loc="center right", bbox_to_anchor=(1.15, 0.5), fontsize = 25)
 
-ax1.text(90, 0.116, 'Avg. Solar St. Dev. = ' + str(avg_std_solar[0])+ '          Avg. Wind St. Dev. = ' + str(avg_std_wind[0]), fontsize = 17)
-
-plt.savefig(output_path + 'Standard Deviation of Wind and Solar Cfs.png')
+#ax1.text(90, 0.116, 'Avg. Solar St. Dev. = ' + str(avg_std_solar[0])+ '          Avg. Wind St. Dev. = ' + str(avg_std_wind[0]), fontsize = 17)
+plt.margins(x=0.01)
+#plt.savefig(output_path + 'CONUS Standard Deviation of Wind and Solar Cfs.jpg', dpi=300, bbox_inches='tight')
 plt.show()

@@ -18,9 +18,11 @@ import datetime
 import seaborn as sns
 from pathlib import Path
 import os
+import statistics
+ 
 
-HI_wind = Path("/Users/Dominic/Desktop/Oahu nsrdb means 2006 - 2019.csv")
-HI_wind_no_leap = Path("/Users/Dominic/Desktop/Oahu nsrdb means 2006 - 2019 - No Leap.csv")
+HI_wind = Path("/Users/Dominic/Desktop/NSRDB weighted average Oahu solar cfs 2006-2019.csv")
+HI_wind_no_leap = Path("/Users/Dominic/Desktop/NSRDB weighted average Oahu solar cfs 2006-2019 no leap.csv")
 output_path = '/Users/Dominic/desktop/'
 
 
@@ -176,7 +178,14 @@ with pd.option_context('display.max_rows', None, 'display.max_columns', None):  
 
 #Determine how many drought days df_2006 has. Sort by 1 consecutive day, 2 consecutive days, 3-6 consecutive days, and 7+ consecutive days
 #Add the number of times the value 1 occurs with the value 0 occurring before and after it
-for i in range(365):
+df_2006.loc[-1] = 0  # adding a row
+df_2006 = df_2006.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2006 = df_2006.reset_index(drop=True)
+
+df_2006.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2006 = df_2006.sort_index()
+for i in range (367):
     if (df_2006.loc[i, 'w_cfs'] == 1) and (df_2006.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2006.loc[i, 'drought_starts'] = i
@@ -229,7 +238,14 @@ list_7day2006 = list_7day2006.count(1)
 
 
 #2007
-for i in range(365):
+df_2007.loc[-1] = 0  # adding a row
+df_2007 = df_2007.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2007 = df_2007.reset_index(drop=True)
+
+df_2007.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2007 = df_2007.sort_index()
+for i in range (367):
     if (df_2007.loc[i, 'w_cfs'] == 1) and (df_2007.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2007.loc[i, 'drought_starts'] = i
@@ -280,7 +296,14 @@ list_6day2007 = list_6day2007.count(1)
 list_7day2007 = list_7day2007.count(1)
 
 #2008
-for i in range(366):
+df_2008.loc[-1] = 0  # adding a row
+df_2008 = df_2008.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2008 = df_2008.reset_index(drop=True)
+
+df_2008.loc[367] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2008 = df_2008.sort_index()
+for i in range (368):
     if (df_2008.loc[i, 'w_cfs'] == 1) and (df_2008.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2008.loc[i, 'drought_starts'] = i
@@ -330,7 +353,14 @@ list_6day2008 = list_6day2008.count(1)
 list_7day2008 = list_7day2008.count(1)
 
 #2009
-for i in range (365):
+df_2009.loc[-1] = 0  # adding a row
+df_2009 = df_2009.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2009 = df_2009.reset_index(drop=True)
+
+df_2009.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2009 = df_2009.sort_index()
+for i in range (367):
     if (df_2009.loc[i, 'w_cfs'] == 1) and (df_2009.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2009.loc[i, 'drought_starts'] = i
@@ -380,7 +410,15 @@ list_6day2009 = list_6day2009.count(1)
 list_7day2009 = list_7day2009.count(1)
 
 #2010
-for i in range (365):
+''' Adding a row with zero drought at the start and end of 2011 since the code cant handle 1 at the start or end'''
+df_2010.loc[-1] = 0  # adding a row
+df_2010 = df_2010.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2010 = df_2010.reset_index(drop=True)
+
+df_2010.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2010 = df_2010.sort_index()
+for i in range (367):
     if (df_2010.loc[i, 'w_cfs'] == 1) and (df_2010.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2010.loc[i, 'drought_starts'] = i
@@ -489,10 +527,14 @@ list_7day2011 = list_7day2011.count(1)
 
 
 #2012
-df_2012.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
-df_2012 = df_2012.sort_index()
+df_2012.loc[-1] = 0  # adding a row
+df_2012 = df_2012.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2012 = df_2012.reset_index(drop=True)
 
-for i in range (367):
+df_2012.loc[367] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2012 = df_2012.sort_index()
+for i in range (368):
     if (df_2012.loc[i, 'w_cfs'] == 1) and (df_2012.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2012.loc[i, 'drought_starts'] = i
@@ -546,7 +588,10 @@ df_2013.loc[-1] = 0  # adding a row
 df_2013 = df_2013.sort_index()  # sorting by index
 #re-index the dataframe to start at 0
 df_2013 = df_2013.reset_index(drop=True)
-for i in range (366):
+
+df_2013.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2013 = df_2013.sort_index()
+for i in range (367):
     if (df_2013.loc[i, 'w_cfs'] == 1) and (df_2013.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2013.loc[i, 'drought_starts'] = i
@@ -601,7 +646,10 @@ df_2014.loc[-1] = 0  # adding a row
 df_2014 = df_2014.sort_index()  # sorting by index
 #re-index the dataframe to start at 0
 df_2014 = df_2014.reset_index(drop=True)
-for i in range (366):
+
+df_2014.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2014 = df_2014.sort_index()
+for i in range (367):
     if (df_2014.loc[i, 'w_cfs'] == 1) and (df_2014.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2014.loc[i, 'drought_starts'] = i
@@ -653,7 +701,14 @@ list_7day2014 = list_7day2014.count(1)
 
 
 #2015
-for i in range (365):
+df_2015.loc[-1] = 0  # adding a row
+df_2015 = df_2015.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2015 = df_2015.reset_index(drop=True)
+
+df_2015.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2015 = df_2015.sort_index()
+for i in range (367):
     if (df_2015.loc[i, 'w_cfs'] == 1) and (df_2015.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2015.loc[i, 'drought_starts'] = i
@@ -709,7 +764,10 @@ df_2016.loc[-1] = 0  # adding a row
 df_2016 = df_2016.sort_index()  # sorting by index
 #re-index the dataframe to start at 0
 df_2016 = df_2016.reset_index(drop=True)
-for i in range (367):
+
+df_2016.loc[367] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2016 = df_2016.sort_index()
+for i in range (368):
     if (df_2016.loc[i, 'w_cfs'] == 1) and (df_2016.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2016.loc[i, 'drought_starts'] = i
@@ -760,7 +818,14 @@ list_6day2016 = list_6day2016.count(1)
 list_7day2016 = list_7day2016.count(1)
 
 #2017
-for i in range (365):
+df_2017.loc[-1] = 0  # adding a row
+df_2017 = df_2017.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2017 = df_2017.reset_index(drop=True)
+
+df_2017.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2017 = df_2017.sort_index()
+for i in range (367):
     if (df_2017.loc[i, 'w_cfs'] == 1) and (df_2017.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2017.loc[i, 'drought_starts'] = i
@@ -811,7 +876,14 @@ list_6day2017 = list_6day2017.count(1)
 list_7day2017 = list_7day2017.count(1)
 
 #2018
-for i in range (365):
+df_2018.loc[-1] = 0  # adding a row
+df_2018 = df_2018.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2018 = df_2018.reset_index(drop=True)
+
+df_2018.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2018 = df_2018.sort_index()
+for i in range (367):
     if (df_2018.loc[i, 'w_cfs'] == 1) and (df_2018.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2018.loc[i, 'drought_starts'] = i
@@ -862,7 +934,14 @@ list_6day2018 = list_6day2018.count(1)
 list_7day2018 = list_7day2018.count(1)
 
 #2019
-for i in range (365):
+df_2019.loc[-1] = 0  # adding a row
+df_2019 = df_2019.sort_index()  # sorting by index
+#re-index the dataframe to start at 0
+df_2019 = df_2019.reset_index(drop=True)
+
+df_2019.loc[366] = 0 #added extra day with 0 drought to end of df_2012 because code can't handle final day ending on drought
+df_2019 = df_2019.sort_index()
+for i in range (367):
     if (df_2019.loc[i, 'w_cfs'] == 1) and (df_2019.loc[i-1, 'w_cfs'] != 1):
         #Create a new column called drought_days and add the value 1 to that index position
         df_2019.loc[i, 'drought_starts'] = i
@@ -924,6 +1003,9 @@ data7 = [list_7day2006, list_7day2007, list_7day2008, list_7day2009, list_7day20
 
 data = [data1, data2, data3, data4, data5, data6, data7]
 
+#print the median of a list
+#print(data1.median())
+
 fig = plt.figure(figsize =(10, 7))
 ax = fig.add_subplot(111)
 bp = ax.boxplot(data)
@@ -938,5 +1020,5 @@ for box in bp['boxes']:
 plt.yticks(np.arange(0, 20, 4))
 
 #save plot to output path
-plt.savefig(os.path.join(output_path, 'solar_droughts_per_year.png'))
+plt.savefig(os.path.join(output_path, 'solar_droughts_per_year.jpg'),dpi=300)
 plt.show()

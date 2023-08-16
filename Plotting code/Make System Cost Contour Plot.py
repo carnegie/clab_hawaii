@@ -10,6 +10,8 @@ import pickle
 import os
 import pandas as pd
 from matplotlib import ticker
+from matplotlib.cm import ScalarMappable
+
 
 
 x = [0, 6.66,13.32,20,50,200]
@@ -64,10 +66,14 @@ print(Z)
 
 
 #Make Contour Plot
+fig, ax = plt.subplots()
+levels = [0.15,0.2,0.25,0.3,0.35,0.4,0.45]
+
 
 #plt.contourf(X, Y, Z, 10, cmap='OrRd', locator=ticker.LogLocator())
-plt.contourf(X, Y, Z, 10, cmap='OrRd')
-plt.colorbar(label='System Cost ($/kWh)');
+qcs = plt.contourf(X, Y, Z, levels, cmap='OrRd', extend='max')
+qcs.cmap.set_over('gray')
+plt.colorbar(qcs,label='System Cost ($/kWh)');
 
 #make labels
 plt.xlabel('Battery Storage (MWh)')
@@ -75,5 +81,5 @@ plt.ylabel('H2 Storage (MWh)')
 plt.title('System Cost Under Fixed Battery \n and H2 Storage Conditions')
 plt.xticks(np.arange(0, 36, step=6))
 plt.yticks(np.arange(0, 201, step=25))
-plt.savefig('System Cost Contour Plot at origin linear scale.png', dpi=300)
+plt.savefig('System Cost Contour Plot.png', dpi=300)
 plt.show()

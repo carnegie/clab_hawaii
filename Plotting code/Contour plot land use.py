@@ -10,6 +10,7 @@ import pickle
 import os
 import pandas as pd
 from matplotlib import ticker
+from matplotlib.cm import ScalarMappable
 
 
 path = '/Users/Dominic/output_data/1_year_e1_contour/'
@@ -93,10 +94,13 @@ sys_land_use2 = sys_land_use2.reshape(6,7)
 print(sys_land_use2)
 
 #Make Contour Plot
+fig, ax = plt.subplots()
+levels = [25, 50, 75, 100, 125, 150, 175, 200]
 
 #plt.contourf(X, Y, sys_land_use2, 100, cmap='OrRd', locator=ticker.LogLocator())
-plt.contourf(X, Y, sys_land_use2, 100, cmap='OrRd')
-plt.colorbar(label='System Land Use (km^2)');
+qcs = ax.contourf(X, Y, sys_land_use2, levels, cmap='OrRd', extend='max')
+qcs.cmap.set_over('gray')
+fig.colorbar(qcs, label='System Land Use (km^2)');
 
 #make labels
 plt.xlabel('Battery Storage (MWh)')
@@ -104,5 +108,5 @@ plt.ylabel('H2 Storage (MWh)')
 plt.title('System Land Use Under Fixed Battery \n and H2 Storage Conditions')
 plt.xticks(np.arange(0, 36, step=6))
 plt.yticks(np.arange(0, 201, step=25))
-plt.savefig('System Land Use Contour Plot at origin linear scale.png', dpi=300)
+plt.savefig('System Land Use Contour Plot.png', dpi=300)
 plt.show()
