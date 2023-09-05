@@ -1,3 +1,6 @@
 [submodule "clab_pypsa"]
 	path = clab_pypsa
 	url = https://github.com/carnegie/clab_pypsa.git
+[submodule "SEM_public"]
+	path = SEM_public
+	url = https://github.com/carnegie/SEM_public.git
