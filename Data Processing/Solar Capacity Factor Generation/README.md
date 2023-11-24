@@ -8,5 +8,5 @@ The process to collect solar irradiation data from the NSRDB specific to Oahu, t
 
 4 - add all yearly solar cfs together per location with leap years.py This script will parse all the .csv's at one location and combine their solar capacity factors together into a new .csv. Can be easily modified to do this process for the wind capacity factors. Includes the data from Feb 29th on all specified leap years.
 
-5 - Generate proper format PyPSA csv solar cfs This script will input the PyPSA format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name. It requires that you already have a csv formatted to be used in PyPSA. It is in this folder, named "full with leap solar cfs format.csv" 
+5 - Generate proper format PyPSA csv solar cfs.py This script will input the PyPSA format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name. It requires that you already have a csv formatted to be used in PyPSA. It is in this folder, named "full with leap solar cfs format.csv" 
  
