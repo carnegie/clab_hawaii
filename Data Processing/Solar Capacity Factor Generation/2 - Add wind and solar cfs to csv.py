@@ -12,12 +12,12 @@ import csv
 
 
 #Create a list of the csv files in the data folder
-data_path="/Users/Dominic/Desktop/trial/"
+data_path="/Users/Dominic/Desktop/leap years//"
 csv_files = glob.glob(os.path.join(data_path, "*.csv"))
 
 #Read the seventh column from a csv file into a pandas dataframe. Skip rows 0 and 1. Repeat for each csv file in csv_files
 for file in csv_files:
-    data = pd.read_csv(file, sep=",", header=0, usecols=[7], skiprows=[0,1], nrows=8760)
+    data = pd.read_csv(file, sep=",", header=0, usecols=[7], skiprows=[0,1], nrows=8784)
     #print(data)
     
     #Calculate the solar capacity factor for each row in the dataframe by dividing the data in column 7 by 1000
@@ -36,12 +36,12 @@ for file in csv_files:
 
 
 #Make a blank array of characters named wind_cfs to hold the wind capacity factor data
-wind_cfs = np.zeros((8760, 1))
+wind_cfs = np.zeros((8784, 1))
 
 print(wind_cfs)
 #Read the eigth column from a csv file into a pandas dataframe. Skip rows 0, 1, and all rows past 8763. Repeat for each csv file in csv_files
 for file in csv_files:
-    wind = pd.read_csv(file, sep=",", header=0, usecols=[8], skiprows=[0,1], nrows=8760)
+    wind = pd.read_csv(file, sep=",", header=0, usecols=[8], skiprows=[0,1], nrows=8784)
     print(wind)
     #Calculate the wind capacity factor for each row in the dataframe using a piecewise function that determines capacity factor based on wind speed. Append this value to a new column in the dataframe.
     for i in range(len(wind)):

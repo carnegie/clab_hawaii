@@ -13,7 +13,7 @@ from datetime import datetime
 import csv
 
 #Create path to folder with the input csv
-format = Path("/Users/Dominic/Desktop/last trial format/MEM ready solar cfs.csv")
+format = Path("/Users/Dominic/Desktop/last trial format/full iwth leap solar cfs format.csv")
 
 #Create path to folder with all the solar capacity factor csv files
 docs = Path("/Users/Dominic/Desktop/NSRDB Wind Cfs full 23 years by location")
