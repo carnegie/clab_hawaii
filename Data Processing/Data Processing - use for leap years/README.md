@@ -2,7 +2,7 @@ README.md
 
 This README covers the process needed to convert the NSDRB data into usable capacity factors that are in the proper format for PyPSA. 
 
-IT IS MEANT FOR DATA THAT INCLUDES LEAP YEARS AND REGULAR YEARS
+IT IS MEANT FOR DATA COMING FROM LEAP YEARS ONLY
 
 Each .py script in the data processing folder has a number at the start of its name. This is the order in which these scripts need to be run.
 
