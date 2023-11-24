@@ -1,6 +1,6 @@
 README.md
 
-This README covers the process needed to convert the NSDRB data into usable capacity factors that are in the proper format for MEM. 
+This README covers the process needed to convert the NSDRB data into usable capacity factors that are in the proper format for PyPSA. 
 
 IT IS MEANT FOR DATA THAT INCLUDES LEAP YEARS AND REGULAR YEARS
 
@@ -14,6 +14,6 @@ Process outline:
 
 3 - add all yearly solar cfs together per location.py This script will parse all the .csv's at one location and combine their solar capacity factors together into a new .csv. Can be easily modified to do this process for the wind capacity factors
 
-4 - Generate proper format MEM csv solar cfs.py This script will input the MEM format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name. Use full with leap solar cfs format.csv as the input file for the correct year format.
+4 - Generate proper format PyPSA csv solar cfs.py This script will input the MEM format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name. Use full with leap solar cfs format.csv as the input file for the correct year format.
 
-These four steps will result in a separate csv for each location that contains the capacity factors in a format ready to be used in MEM
+These four steps will result in a separate csv for each location that contains the capacity factors in a format ready to be used in PyPSA
