@@ -17,4 +17,7 @@
 5 - Generate proper format PyPSA csv solar cfs.py 
 
 * This script will input the PyPSA format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name. It requires that you already have a csv formatted to be used in PyPSA. It is in this folder, named "full with leap solar cfs format.csv" 
- 
+
+ 6 - Create weighted solar cf input file.py
+
+* This script will weight the different input files and add their weighted values to produce one weighted average csv file. It retrieves the weights from the file included in this folder, "Solar Weights.csv"
