@@ -1,7 +1,7 @@
 '''
-This script will take the solar capacity factors specific to each location
+This script will take the wind capacity factors specific to each location
 and concatenate them so that all the capacity factors for the whole 
-1998-2020 period are in one csv file. 
+period are in one csv file. 
 '''
 #Import modules
 import pandas as pd
