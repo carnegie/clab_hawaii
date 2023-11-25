@@ -18,7 +18,7 @@
 
 **6** Generate proper format PyPSA csv wind cfs.py
 
-*
+*This script will input the PyPSA format into a dataframe and add the capacity factors to the correct column and row of that dataframe, then export the dataframe to a new .csv based on the input data file name. It requires that you already have a csv formatted to be used in PyPSA. It is in this folder, named "full with leap wind cfs format.csv"
 
 **7** - Create weighted wind cf input file.py
 
