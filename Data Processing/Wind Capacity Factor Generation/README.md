@@ -16,6 +16,10 @@
 
 * This script will parse all the .csv's at one location and combine their wind capacity factors together into a new .csv. Includes the data from Feb 29th on all specified leap years. You must manually specify leap years. It will not automatically determine them
 
-**6** - Create weighted wind cf input file.py
+**6** Generate proper format PyPSA csv wind cfs.py
+
+*
+
+**7** - Create weighted wind cf input file.py
 
 * This script will weight the different input files and add their weighted values to produce one weighted average csv file. It retrieves the weights from the file included in this folder, "Wind Weights.csv"
