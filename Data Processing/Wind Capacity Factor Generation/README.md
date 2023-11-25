@@ -8,3 +8,8 @@
 
 *This script extracted data for the given 437 points from the h5 file. Since the h5 files contain one year of data, this file must be changed for each yearly h5 you are extracting from. The uploaded script was used to extract the 2019 values for each of the 437 points. This script also calculates the capacity factors for each wind speed value. The script saves the files as year_point.csv, with "year" being the year of the h5 being extracted and "point" being index number of one of the 437 points. There are technically two scripts. Use the one with LEAP YEAR in the name on h5 files with data from leap years only. Likewise, use the one with NON LEAP YEARS on folders with h5 files from years that are not leap years.
 
+**4** - sort locations into new folders.py
+
+*This script sorts all the csv's into new folders based on the location ID. Thus, all years of data for each location will be in one location-specific folder
+
+*5** - 
