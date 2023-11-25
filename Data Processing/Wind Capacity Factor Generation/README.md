@@ -18,4 +18,4 @@
 
 **6** - Create weighted wind cf input file.py
 
-* This script will weight the different input files and add their weighted values to produce one weighted average csv file. It retrieves the weights from the file included in this folder, "Solar Weights.csv"
+* This script will weight the different input files and add their weighted values to produce one weighted average csv file. It retrieves the weights from the file included in this folder, "Wind Weights.csv"
