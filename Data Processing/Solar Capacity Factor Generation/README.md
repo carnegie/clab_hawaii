@@ -10,9 +10,9 @@
 
 * This script will sort the .csv's for all years and all locations into one of 108 folders specific to the location. It creates these folders as well.
 
-4 - add all yearly solar cfs together per location with leap years.py 
+4 - add all yearly solar cfs together per location.py 
 
-* This script will parse all the .csv's at one location and combine their solar capacity factors together into a new .csv. Can be easily modified to do this process for the wind capacity factors. Includes the data from Feb 29th on all specified leap years.
+* This script will parse all the .csv's at one location and combine their solar capacity factors together into a new .csv. Can be easily modified to do this process for the wind capacity factors. Includes the data from Feb 29th on all specified leap years. You must manually specify leap years. It will not automatically determine them
 
 5 - Generate proper format PyPSA csv solar cfs.py 
 
