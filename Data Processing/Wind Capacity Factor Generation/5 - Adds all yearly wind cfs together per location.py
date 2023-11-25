@@ -23,11 +23,7 @@ for folder in docs.iterdir():
         year = re.split('_', file.stem)
         print(year[3])
 
-        if year[3] == ' 2000':
-            data = pd.read_csv(file, sep=",", skiprows=17573, nrows=8785)
-        elif year[3] == ' 2004':
-            data = pd.read_csv(file, sep=",", skiprows=17573, nrows=8785)
-        elif year[3] == ' 2008':
+        if year[3] == ' 2008':
             data = pd.read_csv(file, sep=",", skiprows=17573, nrows=8785)
         elif year[3] == ' 2012':
             data = pd.read_csv(file, sep=",", skiprows=17573, nrows=8785)
