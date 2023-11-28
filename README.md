@@ -8,3 +8,6 @@ Input Data: The energy demand or weather capacity files used as inputs for PyPSA
 Output Data: The output files for each analysis  
 Plotting Code: The code used to make each graph  
 HPCC: Code, information, and inputs needed to run PyPSA on Caltech's high performance computing cluster  
+
+Link to Zenodo archive of repo: [![DOI](https://zenodo.org/badge/608204404.svg)](https://zenodo.org/doi/10.5281/zenodo.10214775)
+
