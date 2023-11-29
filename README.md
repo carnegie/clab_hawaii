@@ -2,7 +2,7 @@
 **This repository has the code and related material that I am using in my PyPSA project related to a 100% renewable, reliable energy system for Oahu**
 -----------------------------------------------------------------------------------------------------------------------
 
-Link to Zenodo archive of repo: [![DOI](https://zenodo.org/badge/608204404.svg)](https://zenodo.org/doi/10.5281/zenodo.10214775)
+Link to Zenodo archive of repo: [![DOI](https://zenodo.org/badge/608204404.svg)](https://zenodo.org/doi/10.5281/zenodo.10214776)
 
 -----------------------------------------------------------------------------------------------------------------------
 The following is a description of the contents of each folder:  
