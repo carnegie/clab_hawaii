@@ -23,11 +23,11 @@ electrolysis_q = 'gray'
 fuelcell_q = 'green'
 
 #Input paths
-yes_hes_0 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_0wind_output.pickle'
-yes_hes_25 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_25wind_output.pickle'
-yes_hes_50 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_50wind_output.pickle'
-yes_hes_75 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_75wind_output.pickle'
-yes_hes_100 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_100wind_output.pickle'
+yes_hes_0 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_0wind_output.pickle'
+yes_hes_25 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_25wind_output.pickle'
+yes_hes_50 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_50wind_output.pickle'
+yes_hes_75 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_75wind_output.pickle'
+yes_hes_100 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_100wind_output.pickle'
 
 #Get land use
 
@@ -187,11 +187,14 @@ for item in (ax.get_xticklabels() + ax.get_yticklabels()):
     item.set_fontsize(22)
 plt.xticks(rotation=45)    
 
+ax.set_xticks([120, 160, 200, 240, 280])
+ax.set_yticks([0.17, 0.18, 0.19, 0.2])
+
 #plt.legend(fontsize=12, loc='upper right')
 ax.yaxis.set_major_formatter(FormatStrFormatter('%.3f'))
 plt.tick_params(axis='y', which='both', left='on', labelleft='on')
-ax.set_title('System Cost vs Land Use', y=1)
+#ax.set_title('System Cost vs Land Use', y=1)
 ax.title.set_fontsize(26)
 
-plt.savefig('C:\\Users\\Dominic\\desktop\\Oahu Results\\Land use wind constraints v system cost yes hes.png', dpi=300, bbox_inches='tight')
+plt.savefig('C:\\Users\\covel\\OneDrive\\desktop\\Oahu Results\\Land use wind constraints v system cost yes hes.png', dpi=300, bbox_inches='tight')
 plt.show()

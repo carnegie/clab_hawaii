@@ -23,17 +23,17 @@ electrolysis_q = 'gray'
 fuelcell_q = 'green'
 
 #Input paths
-no_hes_0 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_0wind_output.pickle'
-no_hes_25 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_25wind_output.pickle'
-no_hes_50 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_50wind_output.pickle'
-no_hes_75 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_75wind_output.pickle'
-no_hes_100 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_100wind_output.pickle'
+no_hes_0 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_0wind_output.pickle'
+no_hes_25 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_25wind_output.pickle'
+no_hes_50 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_50wind_output.pickle'
+no_hes_75 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_75wind_output.pickle'
+no_hes_100 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_100wind_output.pickle'
 
-yes_hes_0 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_0wind_output.pickle'
-yes_hes_25 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_25wind_output.pickle'
-yes_hes_50 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_50wind_output.pickle'
-yes_hes_75 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_75wind_output.pickle'
-yes_hes_100 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_100wind_output.pickle'
+yes_hes_0 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_0wind_output.pickle'
+yes_hes_25 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_25wind_output.pickle'
+yes_hes_50 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_50wind_output.pickle'
+yes_hes_75 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_75wind_output.pickle'
+yes_hes_100 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_100wind_output.pickle'
 
 
 #Get costs
@@ -197,7 +197,7 @@ ax.plot
 
 ax.set_xlabel('Percent of Wind Capacity\nCompared to Base Case', fontsize=22)
 ax.set_ylabel('System Cost ($/kWh)', fontsize=24)
-ax.set_title('System Cost vs\nWind Capacity', fontsize=26, pad = 12)
+#ax.set_title('System Cost vs\nWind Capacity', fontsize=26, pad = 12)
 ax.set_ylim(0,0.35)
 ax.set_xlim(-10, 110)
 ax.set_xticks([0, 25, 50, 75, 100])
@@ -215,7 +215,7 @@ ax.spines['top'].set_visible(False)
 ax.spines['left'].set_linewidth(1)
 ax.spines['bottom'].set_linewidth(1)
 
-y = ['Solar', 'Wind', 'Battery', 'H2 Storage', 'Electrolyzer', 'Fuel Cell']
+y = ['Solar', 'Wind', 'Battery', 'H$_2$ Storage', 'Electrolyzer', 'Fuel Cell']
 #y = ['Solar', 'Wind', 'Battery']
 legend = plt.legend(reversed([p1, p2, p3, p4, p5, p6]), reversed(y), loc="best", bbox_to_anchor=(1, 0.7), fontsize='22', edgecolor='black')
 
@@ -227,5 +227,5 @@ for bar in p1 + p2 + p3 + p4 + p5 + p6:
     bar.set_linewidth(1)
     bar.set_edgecolor('black')
 
-plt.savefig('C:\\Users\\Dominic\\desktop\\Oahu Results\\Costs with constrained wind generation yes hes.png', dpi=300, bbox_inches='tight')
+plt.savefig('C:\\Users\\covel\\OneDrive\\desktop\\Oahu Results\\Costs with constrained wind generation yes hes.png', dpi=300, bbox_inches='tight')
 plt.show()

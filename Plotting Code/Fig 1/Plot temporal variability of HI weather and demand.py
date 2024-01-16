@@ -168,10 +168,23 @@ def process_data(demand, solar, wind, region):
 HI_x_values, HI_y_demand, HI_y_solar, HI_y_wind, HI_demand_quartiles, HI_solar_quartiles, \
 HI_wind_quartiles, HI_solar_mean, HI_wind_mean = process_data(HI_demand, HI_solar, HI_wind, 'HI')
 
-print('HI demand std deviation over the year',HI_y_demand.std())
-print('HI solar std deviation over the year',HI_y_solar.std())
-print('HI wind std deviation over the year',HI_y_wind.std())
+#print('HI demand std deviation over the year',HI_y_demand.std())
+#print('HI solar std deviation over the year',HI_y_solar.std())
+#print('HI wind std deviation over the year',HI_y_wind.std())
 #
+
+# Calculating the relative standard deviation for each dataset
+relative_std_demand = (HI_y_demand.std() / HI_y_demand.mean()) * 100
+relative_std_solar = (HI_y_solar.std() / HI_y_solar.mean()) * 100
+relative_std_wind = (HI_y_wind.std() / HI_y_wind.mean()) * 100
+
+# Printing the results
+print('HI demand relative std deviation over the year:', relative_std_demand, '%')
+print('HI solar relative std deviation over the year:', relative_std_solar, '%')
+print('HI wind relative std deviation over the year:', relative_std_wind, '%')
+
+
+
 '''
 wind_mxmn = HI_wind_quartiles[0]['w_cfs']-HI_wind_quartiles[3]['w_cfs']
 wind_index = wind_mxmn.idxmax()

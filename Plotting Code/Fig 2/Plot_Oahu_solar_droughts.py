@@ -1029,11 +1029,12 @@ bp = sns.boxplot(data=data, ax=ax, boxprops=boxprops, whiskerprops=whiskerprops,
 for whisker in bp.artists:
     whisker.set(color='black')
 
+
 ax.set_xticklabels(['1', '2', '3', '4', '5', '6', '7+'], fontsize=24, rotation=0)
 ax.yaxis.set_tick_params(labelsize=24)
-ax.set_title('Solar Droughts Per Year In Oahu', fontsize=30, pad=10)
-ax.set_ylabel('Droughts Per Year', fontsize=26)
-ax.set_xlabel('Duration (days)', fontsize=24, labelpad=5)
+ax.set_title('Low Solar Resource Days', fontsize=30, pad=10)
+ax.set_ylabel('Occurrences per Year', fontsize=26)
+ax.set_xlabel('Consecutive Days', fontsize=24, labelpad=5)
 ax.tick_params(axis='x', which='both', bottom='on', labelbottom='on') #Can make xticks go away
 
 ax.set_ylim(-0.05, 20)
@@ -1053,7 +1054,7 @@ ax.spines['left'].set_linewidth(1)
 ax.spines['bottom'].set_linewidth(1)
 
 plt.grid(False)
-plt.savefig(os.path.join(output_path, 'solar_droughts_per_year.jpg'), dpi=300,bbox_inches='tight')
+#plt.savefig(os.path.join(output_path, 'solar_droughts_per_year.jpg'), dpi=300,bbox_inches='tight')
 plt.show()
 
 

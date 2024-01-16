@@ -24,17 +24,17 @@ electrolysis_q = 'gray'
 fuelcell_q = 'green'
 
 #Input paths
-no_hes_0 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_0wind_output.pickle'
-no_hes_25 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_25wind_output.pickle'
-no_hes_50 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_50wind_output.pickle'
-no_hes_75 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_75wind_output.pickle'
-no_hes_100 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_100wind_output.pickle'
+no_hes_0 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_0wind_output.pickle'
+no_hes_25 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_25wind_output.pickle'
+no_hes_50 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_50wind_output.pickle'
+no_hes_75 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_75wind_output.pickle'
+no_hes_100 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/No PGP/Outputs/dec_land_use_no_normal_no_PGP_100wind_output.pickle'
 
-yes_hes_0 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_0wind_output.pickle'
-yes_hes_25 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_25wind_output.pickle'
-yes_hes_50 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_50wind_output.pickle'
-yes_hes_75 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_75wind_output.pickle'
-yes_hes_100 = '/Users/Dominic/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_100wind_output.pickle'
+yes_hes_0 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_0wind_output.pickle'
+yes_hes_25 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_25wind_output.pickle'
+yes_hes_50 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_50wind_output.pickle'
+yes_hes_75 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_75wind_output.pickle'
+yes_hes_100 = '/Users/covel/OneDrive/Desktop/13-6-23 Rerun/Figure S Something4 - Decreasing Land Use/Yes PGP/Outputs/dec_land_use_no_normal_yes_PGP_100wind_output.pickle'
 
 
 combo_wind_solar = np.array([])
@@ -179,9 +179,9 @@ plt.grid(False)
 ax.set_ylim(0, 350)
 ax.yaxis.set_major_locator(ticker.MultipleLocator(50))
 ax.yaxis.set_minor_locator(ticker.MultipleLocator(10))
-ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+#ax.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
 plt.tick_params(axis='y', which='both', left='on', labelleft='on')
-ax.set_title('Land Use With Wind\nCapacity Constraints', y=1.)
+#.set_title('Land Use With Wind\nCapacity Constraints', y=1.)
 
 
 #make x and y axis text fontsize 14
@@ -208,7 +208,7 @@ for bar in p1 + p2 + p3:
 # a dashed line at 3965.3305*0.0223 to represent the land used by solar on existing developments
 plt.axhline(y=3965.3305*0.0223, color='k', linestyle='--', linewidth=1)
 plt.text(4.7, 3965.3305*0.0223-3.5, '*', color='k', fontsize=25, ha='center', va='center')
-plt.text(4.9, 3965.3305*0.0223+5.5, 'Solar capacity below\ndashed line could be\nbuilt on rooftops,\nrequiring zero land use', color='k', fontsize=22, ha='left', va='top')
+plt.text(4.9, 3965.3305*0.0223+5.5, 'Solar capacity below\ndashed line could be\nbuilt on rooftops,\nrequiring zero\ndedicated land use', color='k', fontsize=22, ha='left', va='top')
 
-plt.savefig('C:\\Users\\Dominic\\desktop\\Oahu Results\\Dec wind amount no HES.jpg', dpi = 300, bbox_inches='tight')
+plt.savefig('C:\\Users\\covel\\OneDrive\\desktop\\Oahu Results\\Dec wind amount no HES.jpg', dpi = 600, bbox_inches='tight')
 plt.show()

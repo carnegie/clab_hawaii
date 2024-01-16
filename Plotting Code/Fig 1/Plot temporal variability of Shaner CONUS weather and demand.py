@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Tue Dec  5 16:06:53 2023
+
+@author: Dominic
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Thu Apr 27 11:25:28 2023
 
 @author: Dominic
@@ -17,10 +24,10 @@ import pandas as pd
 from pathlib import Path
 import matplotlib.pyplot as plt
 
-HI_wind = Path("/Users/Dominic/Desktop/wind_series_Shaner_unnormalized - 2006 onward.csv")
-HI_solar = Path("/Users/Dominic/Desktop/solar_series_Shaner_unnormalized - 2006 onward.csv")
-HI_demand = Path("/Users/Dominic/Desktop/CONUS_demand 2006-2015.csv")
-output_path = '/Users/Dominic/'
+HI_wind = Path("/Users/covel/OneDrive/Desktop/wind_cf_Dan_normalized_to_0.38_mean_United States - 2006 thru 2015.csv")
+HI_solar = Path("/Users/covel/OneDrive/Desktop/solar_series_Shaner_unnormalized - 2006 onward.csv")
+HI_demand = Path("/Users/covel/OneDrive/Desktop/CONUS_demand 2006-2015.csv")
+output_path = '/Users/covel/OneDrive/'
 #this takes in the file and gets rid of all lines before BEGIN_DATA
 #then it returns a pandas dataframe
 
@@ -168,11 +175,19 @@ HI_x_values, HI_y_demand, HI_y_solar, HI_y_wind, HI_demand_quartiles, HI_solar_q
 HI_wind_quartiles, HI_solar_mean, HI_wind_mean = process_data(HI_demand, HI_solar, HI_wind, 'HI')
 
 
-#
-print('CONUS demand std deviation over the year',HI_y_demand.std())
-print('CONUS solar std deviation over the year',HI_y_solar.std())
-print('CONUS wind std deviation over the year',HI_y_wind.std())
+#print('CONUS demand std deviation over the year',HI_y_demand.std())
+#print('CONUS solar std deviation over the year',HI_y_solar.std())
+#print('CONUS wind std deviation over the year',HI_y_wind.std())
 
+# Calculating the relative standard deviation for each dataset
+relative_std_demand = (HI_y_demand.std() / HI_y_demand.mean()) * 100
+relative_std_solar = (HI_y_solar.std() / HI_y_solar.mean()) * 100
+relative_std_wind = (HI_y_wind.std() / HI_y_wind.mean()) * 100
+
+# Printing the results
+print('CONUS demand relative std deviation over the year:', relative_std_demand, '%')
+print('CONUS solar relative std deviation over the year:', relative_std_solar, '%')
+print('CONUS wind relative std deviation over the year:', relative_std_wind, '%')
 
 '''
 wind_mxmn = HI_wind_quartiles[0]['w_cfs']-HI_wind_quartiles[3]['w_cfs']
@@ -249,6 +264,5 @@ ax1.set_xlabel('Month of year', fontsize=24, labelpad=10)
 #ax1.annotate('Solar range: {}'.format(round(solar_mxmn.max(), 2)), xy=(solar_index, 1.5), xytext=(solar_index, 1.5), fontsize=12)
 
 plt.tight_layout()
-#
-plt.savefig('C:\\Users\\Dominic\\desktop\\Oahu Results\\CONUS_Shaner_10yr.png', dpi=300, bbox_inches='tight')
+#plt.savefig('C:\\Users\\Dominic\\desktop\\Oahu Results\\CONUS_Shaner_10yr.png', dpi=300, bbox_inches='tight')
 plt.show()

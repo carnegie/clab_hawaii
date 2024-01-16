@@ -957,9 +957,9 @@ for whisker in bp.artists:
 
 ax.set_xticklabels(['1', '2', '3', '4', '5', '6', '7+'], fontsize=24, rotation=0)
 ax.yaxis.set_tick_params(labelsize=24)
-ax.set_title('Wind Droughts Per Year In Oahu', fontsize=30, pad=10)
-ax.set_ylabel('Droughts Per Year', fontsize=26)
-ax.set_xlabel('Duration (days)', fontsize=24, labelpad=5)
+ax.set_title('Low Wind Resource Days', fontsize=30, pad=10)
+ax.set_ylabel('Occurrences per Year', fontsize=26)
+ax.set_xlabel('Consecutive Days', fontsize=24, labelpad=5)
 ax.tick_params(axis='x', which='both', bottom='on', labelbottom='on') #Can make xticks go away
 
 ax.set_ylim(-0.05, 20)
@@ -980,9 +980,9 @@ ax.spines['bottom'].set_linewidth(1)
 
 
 plt.grid(False)
-plt.savefig(os.path.join(output_path, 'wind_droughts_per_year.jpg'), dpi=300,bbox_inches='tight')
+#plt.savefig(os.path.join(output_path, 'wind_droughts_per_year.jpg'), dpi=300,bbox_inches='tight')
 plt.show()
-'''
+
 #print the median number of droughts per year
 print('Median number of 1 day droughts per year: ', statistics.median(data1))
 print('Median number of 2 day droughts per year: ', statistics.median(data2))
@@ -991,7 +991,11 @@ print('Median number of 4 day droughts per year: ', statistics.median(data4))
 print('Median number of 5 day droughts per year: ', statistics.median(data5))
 print('Median number of 6 day droughts per year: ', statistics.median(data6))
 print('Median number of 7+ day droughts per year: ', statistics.median(data7))
-'''
+
 #print all values in df_2016
 #with pd.option_context('display.max_rows', None, 'display.max_columns', None):
     #print(df_2016)
+
+
+#print the median number of droughts per year
+print('Median number of droughts per year: ', statistics.median(data))
